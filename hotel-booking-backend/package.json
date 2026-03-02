@@ -1,0 +1,21 @@
+{
+  "name": "hotel-booking-backend",
+  "version": "1.0.0",
+  "description": "MERN Hotel Booking API - Clerk, Supabase, Stripe",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "@clerk/express": "^1.0.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0",
+    "stripe": "^17.3.0",
+    "uuid": "^11.0.3"
+  }
+}
