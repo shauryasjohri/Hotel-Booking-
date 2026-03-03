@@ -18,3 +18,5 @@ export const config = {
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   },
 };
+
+console.log("Loaded URL:", process.env.SUPABASE_URL)

@@ -1,19 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { ClerkProvider } from "@clerk/clerk-react";
 import App from "./App/App";
 import { BookingProvider } from "./Context/BookingProvider";
 import { ThemeProvider } from "@/Components/theme-provider";
 import "@/Styles/Globals.css";
 
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <BookingProvider>
-          <App />
-        </BookingProvider>
-      </ThemeProvider>
-    </BrowserRouter>
+    <ClerkProvider publishableKey={clerkPubKey}>
+      <BrowserRouter>
+        <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+          <BookingProvider>
+            <App />
+          </BookingProvider>
+        </ThemeProvider>
+      </BrowserRouter>
+    </ClerkProvider>
   </React.StrictMode>
 );

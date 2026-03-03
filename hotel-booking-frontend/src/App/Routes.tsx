@@ -9,9 +9,16 @@ import ConfirmationPage from "../Pages/Confirmation/ConfirmationPage";
 import MyBookingsPage from "../Pages/MyBookings/MyBookings";
 import ProtectedRoute from "../Components/Common/ProtectedRoute/ProtectedRoute";
 
+import Login from "../Pages/Auth/Login";
+import Signup from "../Pages/Auth/Signup";
+
 const AppRoutes = () => {
   return (
     <Routes>
+      {/* Public auth routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+
       <Route element={<AnimatedLayout />}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/search" element={<SearchResultsPage />} />
@@ -26,7 +33,14 @@ const AppRoutes = () => {
           }
         />
 
-        <Route path="/booking/confirmation" element={<ConfirmationPage />} />
+        <Route
+          path="/booking/confirmation"
+          element={
+            <ProtectedRoute>
+              <ConfirmationPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/my-bookings"
